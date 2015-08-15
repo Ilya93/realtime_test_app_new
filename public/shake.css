@@ -1,0 +1,33 @@
+@-webkit-keyframes spaceboots {
+    0% {
+        -webkit-box-shadow: 1px 1px 3px 1px rgba(171, 148, 148, 0.8);
+        -moz-box-shadow: 1px 1px 3px 1px rgba(171, 148, 148, 0.8);
+        box-shadow: 1px 1px 3px 1px rgba(171, 148, 148, 0.8);
+        -webkit-transform: translate(3px, 0px);
+    }
+
+    30% {
+        -webkit-transform: translate(0px, 0px);
+    }
+
+    50% {
+        -webkit-transform: translate(-3px, 0px);
+    }
+    90% {
+        box-shadow: 1px 1px 3px 1px rgba(171, 148, 148, 0.8);
+    }
+    100% {
+        box-shadow: none;
+        -webkit-transform: translate(0px, 0px);
+    }
+}
+
+.shake {
+    -webkit-animation-name: spaceboots;
+    -webkit-animation-duration: 1s;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation-iteration-count: 1;
+}
+
+
+

@@ -1,0 +1,22 @@
+<div class="grid-horizontal">
+    <div class="grid__row" ng-repeat="boxes in vm.scheme">
+        <div ng-repeat="box in boxes" ng-dblclick="vm.onCreateSticky({box:box})" class="grid__cell row_v grid-scroll">
+            <h6 class="text-overflow" title="{{box.header}}">{{box.header}}</h6>
+            <div class="col">
+            <p class="help-text" ng-if="!box.sticks.length && !vm.loading">
+                {{box.helpText}}</p>
+                <ul class="list"
+                    nrg-s-list="box.sticks"
+                    ng-if="box.sticks.length"
+                    ng-class="{'box-active-hidden':!box.sticks.length && !models.dragging,list__2column:box.sticks.length>4}">
+                    <li stick="stick" ng-class="{'shake': vm.isChanged(stick._id)}"
+                        ng-click="vm.onOpenSticky({box:box,stick:stick})"
+                        ng-repeat="stick in box.sticks">
+                        <div class="text-overflow">{{stick.title}}</div>
+                    </li>
+                </ul>
+            </div>
+            <span role="button" class="btn-plus icon-plus" ng-click="vm.onCreateSticky({box:box})"></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<li class="stick"
+    nrg-s-item="stick">
+    <div class="stick__body">
+        <div ng-transclude></div>
+            <div class="stick__popover"
+                 ng-mouseleave="hidePopover()"
+                 ns-popover="isShow"
+                 ns-popover-popup-delay="0.4"
+                 ns-popover-mouse-relative="x"
+                 ns-popover-hide-on-inside-click="true"
+                 ns-popover-template="public/partials/sticky-popover.partial.html"
+                 ns-popover-trigger="mouseenter"
+                 ns-popover-placement="bottom"></div>
+        <ul class="li-acts prevent-selection">
+            <li class="li-acts_i_plain not_display">
+            </li>
+            <li class="li-acts_i check-icon"
+                ng-dblclick="$event.stopPropagation()"
+                ng-hide="stick.saving && changinActivity"></li>
+        </ul>
+    </div>
+
+
+</li>

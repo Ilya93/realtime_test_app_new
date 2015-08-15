@@ -1,0 +1,14 @@
+<label>
+    <div class="label">Title</div>
+    <input type="text" ng-model="model.title" required="required"/>
+</label>
+<label class="form-element">
+    <div class="label">description</div>
+        <textarea class="animate"
+                  rows="10"
+                  msd-elastic="\n"
+                  ng-model="model.description"
+                  placeholder="{{descPlaceholder}}"
+                  style="min-height: 310px">
+        </textarea>
+</label>

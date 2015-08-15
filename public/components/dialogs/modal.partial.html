@@ -1,0 +1,26 @@
+<form name="dialogForm" ng-class="{inactive:!model.active}"
+      am-model="model"
+      model-entity-name="entityName"
+      model-change="dialogForm.$pristine = false"
+      nv-file-drop
+      uploader="uploader"
+      watch-height
+      ng-enter="(!dialogForm.$invalid && !dialogForm.$pristine) && save(model, stick)">
+    <section class="modal-header">{{headerTxt}}</section>
+    <section class="modal-body" ng-include src="bodyTmpl">
+
+    </section>
+    <section class="modal-footer">
+        <div class="flex-left">
+            <switcher></switcher>
+        </div>
+        <div class="flex-right">
+            <button class="btn-clip btn-l"></button>
+            <button class="btn-trash btn-l"  ng-click="remove()">
+            </button>
+            <button style="min-width: 88px;" ng-click="save(model, stick)" class="btn-l btn-plain stateful-btn">
+                Save
+            </button>
+        </div>
+    </section>
+</form>

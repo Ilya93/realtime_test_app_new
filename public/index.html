@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Realtime test app</title>
+    <!-- StartStyles -->
+    <link rel='stylesheet' type='text/css' href=' fonts/icons/style.css'/>
+    <link rel='stylesheet' type='text/css' href='bower_components/components-font-awesome/css/font-awesome.css'/>
+    <link rel='stylesheet' type='text/css' href='bower_components/ngDialog/css/ngDialog.css'/>
+    <link rel='stylesheet' type='text/css' href='bower_components/ngDialog/css/ngDialog-theme-plain.css'/>
+    <link rel='stylesheet' type='text/css' href='bower_components/angular-chart.js/dist/angular-chart.css'/>
+    <link rel='stylesheet' type='text/css' href='bower_components/ngImgCrop/compile/minified/ng-img-crop.css'/>
+    <link rel='stylesheet' type='text/css' href='bower_components/perfect-scrollbar/css/perfect-scrollbar.css'/>
+    <link rel='stylesheet' type='text/css' href='project.css'/>
+    <link rel='stylesheet' type='text/css' href='cosmetic.css'/>
+    <link rel='stylesheet' type='text/css' href='base.css'/>
+    <link rel='stylesheet' type='text/css' href='reset.css'/>
+    <link rel='stylesheet' type='text/css' href='shake.css'/>
+    <!-- EndStyles -->
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=cyrillic,cyrillic-ext,latin,latin-ext'
+          rel='stylesheet' type='text/css'>
+</head>
+<body ng-app="app" class="res-theme">
+<div class="main-cnt" ng-controller="appController">
+    <header class="m-toolbar">
+        <a class="m-toolbar__h logo">
+            <img src="img/logo2.jpg">
+
+            <div class="main-logo">
+                <span>test</span>
+                <span>realtime app</span>
+            </div>
+        </a>
+
+        <div class="m-toolbar__content">
+
+        </div>
+    </header>
+    <div class="main">
+        <div class="res-theme page">
+            <section class="page-header_container">
+                <h1 class="page-header">
+                    RESOURCES</h1>
+                <p class="page-desc"
+                   ng-hide="descHidden">Before you start making your business idea, you should take an inventory over
+                    the resources you already have. Don't add resources that you "almost" have. You don't have to fill
+                    in all the boxes. You can always came back here and add to it later.</p>
+            </section>
+            <div class="page__content">
+                <board scheme="scheme"
+                       items="itemsPromise"
+                       on-create-sticky="onCreate(box)"
+                       on-open-sticky="onOpen(box,stick)"
+                       changed-ids="changedIds">
+                </board>
+                <section>
+                    <div class="tooltip-static resources-guide">
+                        <div class="row">
+                            <div class="col">
+                                <h5>FINISHED FOR NOW?</h5>
+
+                                <p class="help-text">If you have all the resources you can think of right now, the next
+                                    step will be the business idea.</p>
+                            </div>
+                            <div class="col resources-guide__next">
+                                <div>
+                                    <a href="#" class="btn-link">
+                                        GO TO BUSINESS IDEA</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- StartScripts -->
+<script src="bower_components/underscore/underscore.js" charset="UTF-8"></script>
+<script src="bower_components/jquery/dist/jquery.js" charset="UTF-8"></script>
+<script src="bower_components/jquery-ui/jquery-ui.js" charset="UTF-8"></script>
+<script src="bower_components/angular/angular.js" charset="UTF-8"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js" charset="UTF-8"></script>
+<script src="bower_components/angular-animate/angular-animate.js" charset="UTF-8"></script>
+<script src="bower_components/angular-resource/angular-resource.js" charset="UTF-8"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.js" charset="UTF-8"></script>
+<script src="bower_components/angular-locker/dist/angular-locker.js" charset="UTF-8"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js" charset="UTF-8"></script>
+<script src="bower_components/angular-file-upload/angular-file-upload.js" charset="UTF-8"></script>
+<script src="bower_components/ngDialog/js/ngDialog.js" charset="UTF-8"></script>
+<script src="bower_components/angular-elastic/elastic.js" charset="UTF-8"></script>
+<script src="bower_components/Chart.js/Chart.js" charset="UTF-8"></script>
+<script src="bower_components/angular-chart.js/angular-chart.js" charset="UTF-8"></script>
+<script src="bower_components/angular-filter/dist/angular-filter.js" charset="UTF-8"></script>
+<script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js" charset="UTF-8"></script>
+<script src="bower_components/moment/moment.js" charset="UTF-8"></script>
+<script src="bower_components/ngImgCrop/compile/unminified/ng-img-crop.js" charset="UTF-8"></script>
+<script src="bower_components/angular-ui-slider/src/slider.js" charset="UTF-8"></script>
+<script src="bower_components/quick-ngrepeat/quick-ng-repeat.js" charset="UTF-8"></script>
+<script src="bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.js" charset="UTF-8"></script>
+<script src="bower_components/nsPopover/src/nsPopover.js" charset="UTF-8"></script>
+<script src="bower_components/rxjs/dist/rx.all.js" charset="UTF-8"></script>
+<script src="mainCtrl.js" charset="UTF-8"></script>
+<script src="components/board/board.directive.js" charset="UTF-8"></script>
+<script src="components/board/board.service.js" charset="UTF-8"></script>
+<script src="components/dialogs/commonDialogs.service.js" charset="UTF-8"></script>
+<script src="components/dialogs/stick-dialog.controller.js" charset="UTF-8"></script>
+<script src="components/dialogs/dialogService.js" charset="UTF-8"></script>
+<script src="components/stick/stick.controller.js" charset="UTF-8"></script>
+<script src="components/stick/stick.directive.js" charset="UTF-8"></script>
+<script src="components/LocalDB.js" charset="UTF-8"></script>
+<!-- EndScripts -->
+</body>
+</html>
