@@ -40,9 +40,9 @@ angular.module('app')
                 data.title = makeId();
                 sticks.update(randomItem, data, function (updated_items) {
                     console.log('random updated item', updated_items);
-                    $rootScope.$broadcast('data:synchronized',updated_items);
+                    $rootScope.$broadcast('data:synchronized', updated_items);
                     $timeout(function () {
-                          loop();
+                        loop();
                     }, 3000);
                 });
             };
@@ -54,7 +54,7 @@ angular.module('app')
                 data.description = makeId();
                 sticks.save(data, function (_data) {
                     console.log('random created item:', _data);
-                    $rootScope.$broadcast('data:synchronized',_data);
+                    $rootScope.$broadcast('data:synchronized', [_data]);
                     $timeout(function () {
                         loop();
                     }, 5000);
@@ -62,19 +62,11 @@ angular.module('app')
             };
             this.randomDeleteData = function loop() {
                 var sticks = new LDB.Collection('sticks');
-                var randomItem = sticks.items[Math.floor(Math.random() * sticks.items.length)];
+                var randomItem = getRandomItem(sticks);
                 sticks.find(randomItem, function (results) {
                     results[0].delete();
                     console.log('random removed item', results[0]);
-                    $rootScope.$broadcast('data:synchronized',updated_items);
-                    $timeout(function () {
-                        loop();
-                    }, 5000);
-
-                });
-                sticks.update(randomItem, data, function (updated_items) {
-                    console.log('Updated item', updated_items);
-                    $rootScope.$broadcast('data:synchronized',updated_items);
+                    $rootScope.$broadcast('data:synchronized');
                     $timeout(function () {
                         loop();
                     }, 5000);
@@ -87,9 +79,16 @@ angular.module('app')
                     text += possible.charAt(Math.floor(Math.random() * possible.length));
                 return text;
             }
+
+            function getRandomItem(sticks) {
+                var randomItem = sticks.items[Math.floor(Math.random() * sticks.items.length)];
+                if (angular.isUndefined(randomItem)) getRandomItem();
+                return randomItem;
+            }
+
             function makeRandomGroup() {
-                var groups = ['reason','values','objectives','mission','restrictions','informing'];
-                return groups[Math.floor(Math.random() * groups.length)] ;
+                var groups = ['reason', 'values', 'objectives', 'mission', 'restrictions', 'informing'];
+                return groups[Math.floor(Math.random() * groups.length)];
             }
         }]);
 

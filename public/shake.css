@@ -4,6 +4,7 @@
         -moz-box-shadow: 1px 1px 3px 1px rgba(171, 148, 148, 0.8);
         box-shadow: 1px 1px 3px 1px rgba(171, 148, 148, 0.8);
         -webkit-transform: translate(3px, 0px);
+
     }
 
     30% {
@@ -27,6 +28,7 @@
     -webkit-animation-duration: 1s;
     -webkit-transform-origin: 50% 50%;
     -webkit-animation-iteration-count: 1;
+    background: rgba(202, 255, 168, 0.87)!important;
 }
 
 
