@@ -39,7 +39,7 @@ angular.module('app')
                 data = angular.copy(randomItem);
                 data.title = makeId();
                 sticks.update(randomItem, data, function (updated_items) {
-                    console.log('Updated item', updated_items);
+                    console.log('random updated item', updated_items);
                     $rootScope.$broadcast('data:synchronized',updated_items);
                     $timeout(function () {
                           loop();
@@ -63,8 +63,15 @@ angular.module('app')
             this.randomDeleteData = function loop() {
                 var sticks = new LDB.Collection('sticks');
                 var randomItem = sticks.items[Math.floor(Math.random() * sticks.items.length)];
-                data = angular.copy(randomItem);
-                data.title = makeId();
+                sticks.find(randomItem, function (results) {
+                    results[0].delete();
+                    console.log('random removed item', results[0]);
+                    $rootScope.$broadcast('data:synchronized',updated_items);
+                    $timeout(function () {
+                        loop();
+                    }, 5000);
+
+                });
                 sticks.update(randomItem, data, function (updated_items) {
                     console.log('Updated item', updated_items);
                     $rootScope.$broadcast('data:synchronized',updated_items);

@@ -28,18 +28,9 @@ function boardCtrl(utils, $scope) {
     $scope.$watch('vm.items', function (newVal) {
         newVal.then(function (data) {
             utils.dataToViewModel(vm.scheme, vm.key, data);
-            vm.cla = false;
         });
     });
-    $scope.$watch('vm.items', function (newVal) {
-        newVal.then(function (data) {
-            utils.dataToViewModel(vm.scheme, vm.key, data);
-            vm.cla = false;
-        });
-    });
-    $scope.$watch('vm.changedIds', function (newVal) {
-      console.log('newVal',newVal)
-    });
+
     vm.isChanged = function (stickId) {
         if (angular.isArray(vm.changedIds)) {
             return vm.changedIds.indexOf(stickId) > -1;
