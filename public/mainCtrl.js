@@ -17,17 +17,19 @@ angular.module('app', ['ngDialog'])
             $scope.scheme = scheme;
             $scope.itemsPromise = service.querySticks();
 
+
+            service.randomAddData();
+
+
             $timeout(function () {
                 service.randomChangeData();
             }, 5000);
 
-            $timeout(function () {
-                service.randomAddData();
-            }, 5000);
 
             $timeout(function () {
                 service.randomDeleteData();
-            }, 5000);
+            }, 10000);
+
             $scope.$on('data:synchronized', function (event, args) {
                 if (!angular.isArray(args)) return;
                 $scope.changedIds = args.map(function (item) {

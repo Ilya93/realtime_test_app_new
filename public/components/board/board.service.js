@@ -35,7 +35,7 @@ angular.module('app')
             };
             this.randomChangeData = function loop() {
                 var sticks = new LDB.Collection('sticks');
-                var randomItem = sticks.items[Math.floor(Math.random() * sticks.items.length)];
+                var randomItem = getRandomItem(sticks);
                 data = angular.copy(randomItem);
                 data.title = makeId();
                 sticks.update(randomItem, data, function (updated_items) {
@@ -43,7 +43,7 @@ angular.module('app')
                     $rootScope.$broadcast('data:synchronized', updated_items);
                     $timeout(function () {
                         loop();
-                    }, 3000);
+                    }, 5000);
                 });
             };
             this.randomAddData = function loop() {
